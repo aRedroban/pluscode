@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rep_solicitud_tarjeta_sol" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="93b289ec-1356-4256-b5c0-8075e225c6cb">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="35"/>
+	<parameter name="pide_cliente" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+    apellido_paterno, apellido_materno, cedula, nombre_base
+FROM
+    clientes
+WHERE
+    id = $P{pide_cliente};]]>
+	</queryString>
+	<field name="apellido_paterno" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido_materno" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cedula" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre_base" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="66" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="1d7a2b17-e56e-4eb2-aa57-cfdee817c184" x="119" y="13" width="356" height="34"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE PRUEBA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="8a0bea2f-7853-43e0-8982-6321c188aea3" x="54" y="15" width="482" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="d4fa76fd-d48a-4b91-8899-7012e9670a35" x="54" y="15" width="100" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE 1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2ba144f3-c339-4de0-9fe5-9e46cdb59bdc" x="154" y="15" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE 2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c93e67f8-8de8-4127-bb57-3d9fe493cf17" x="320" y="15" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CEDULA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c08e6869-9dbf-4de9-8d5c-b12c1122c62a" x="436" y="15" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[BASE]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="80" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="77" splitType="Stretch">
+			<textField>
+				<reportElement uuid="abd189e9-ccd9-4265-9134-af7e15c4aef6" x="54" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{apellido_paterno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="16d9ebd5-cac6-431b-9049-47351b5497a0" x="187" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{apellido_materno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3f851d85-d381-4384-8ef6-81f83006ffa9" x="320" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{cedula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e999614d-b16d-4404-9ea2-1f913e7729bd" x="436" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nombre_base}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="83" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="146" splitType="Stretch"/>
+	</summary>
+</jasperReport>

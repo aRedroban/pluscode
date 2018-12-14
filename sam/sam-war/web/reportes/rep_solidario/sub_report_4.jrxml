@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sub_report_4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a61bc4c7-81f1-4bc5-be83-360e40d2d2fe">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="1168"/>
+	<parameter name="pide_cliente" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["C:\\Users\\DESARROLLO\\Desktop\\origin\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+    id,
+    SUBSTRING_INDEX(fecha_gestion, ' ', 1) AS fecha_gestion,
+    lugar_entregaecuenta,
+    CASE
+        WHEN lugar_entregaecuenta = 'DIGITAL' THEN email
+        ELSE email = NULL
+    END AS 'email_estado_cuenta',
+    tipo_identificacion,
+    cedula,
+    apellido_paterno,
+    apellido_materno,
+    CONCAT(primer_nombre, ' ', segundo_nombre) AS nombres,
+    concat(apellido_paterno, ' ', apellido_materno, ' ',primer_nombre, ' ', segundo_nombre) as nombres_completos,
+    genero,
+    estado_civil,
+    fecha_nacimiento,
+    cargas_familiares,
+    nivel_estudios,
+    profesion,
+    'CEDULA' AS tipo_documento_conyugue,
+    identificacion_conyuge,
+    apellido1conyuge,
+    apellido2conyuge,
+    CONCAT(nombre1conyuge, ' ', nombre2conyuge) AS nombres_conyugue,
+    provincia_domicilio,
+    ciudad_domicilio AS canton_domicilio,
+    parroquia_domicilio,
+    barrio_domicilio,
+    numeracion_domicilio,
+    referencia_domicilio,
+    calle_principal_domicilio,
+    calletransversal_domicilio,
+    tipo_vivienda,
+    valor_vivienda AS avaluo,
+    telefono_principal,
+    telefono_celular,
+    email,
+    origen_ingresos,
+    ruc_empresa,
+    nombre_labora,
+    fecha_ingreso,
+    cargo,
+    provincia_trabajo,
+    ciudad_trabajo,
+    parroquia_trabajo,
+    barrio_trabajo,
+    numeracion_trabajo,
+    referencia_trabajo,
+    calle_principal_trabajo,
+    calletransversal_trabajo,
+    telefono_trabajo,
+    apellido1ref_personal,
+    apellido2ref_personal,
+    CONCAT(nombre1ref_personal, ' ',nombre2ref_personal) AS nombres_referencia,
+    telefono_ref_personal,
+    sueldo_ingresos AS ingresos_personales,
+    rentas,
+    remesas,
+    ingreso_familiares,
+    otros_ingresos,
+    gastos_basicos AS alimentacion,
+    servicios_basicos,
+    transporte,
+    otros_gastos,
+    activo_bien AS descripcion_activo,
+    valor_unitario_bien,
+    institucion_pasivo,
+    fecha_emision_pasivo,
+    valor_cuota_pasivo,
+    plazo_pasivo,
+    saldo_pasivo,
+(SELECT logo_empr FROM sis_empresa) AS logo
+FROM
+    clientes
+WHERE
+    id = $P{pide_cliente};]]>
+	</queryString>
+	<field name="id" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_gestion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="lugar_entregaecuenta" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email_estado_cuenta" class="java.lang.String"/>
+	<field name="tipo_identificacion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cedula" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido_paterno" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido_materno" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombres" class="java.lang.String"/>
+	<field name="nombres_completos" class="java.lang.String"/>
+	<field name="genero" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estado_civil" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_nacimiento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cargas_familiares" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nivel_estudios" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="profesion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipo_documento_conyugue" class="java.lang.String"/>
+	<field name="identificacion_conyuge" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido1conyuge" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido2conyuge" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombres_conyugue" class="java.lang.String"/>
+	<field name="provincia_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="canton_domicilio" class="java.lang.String"/>
+	<field name="parroquia_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="barrio_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numeracion_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="referencia_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="calle_principal_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="calletransversal_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipo_vivienda" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="avaluo" class="java.lang.String"/>
+	<field name="telefono_principal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefono_celular" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="origen_ingresos" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ruc_empresa" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre_labora" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_ingreso" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cargo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="provincia_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ciudad_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="parroquia_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="barrio_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numeracion_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="referencia_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="calle_principal_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="calletransversal_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefono_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido1ref_personal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido2ref_personal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombres_referencia" class="java.lang.String"/>
+	<field name="telefono_ref_personal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ingresos_personales" class="java.lang.String"/>
+	<field name="rentas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="remesas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ingreso_familiares" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="otros_ingresos" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alimentacion" class="java.lang.String"/>
+	<field name="servicios_basicos" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="transporte" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="otros_gastos" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descripcion_activo" class="java.lang.String"/>
+	<field name="valor_unitario_bien" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="institucion_pasivo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_emision_pasivo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="valor_cuota_pasivo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="plazo_pasivo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="saldo_pasivo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="logo" class="java.lang.Object"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="508" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="73353c3f-889a-4499-9f1d-3666017d8b0f" x="0" y="0" width="555" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SÉPTIMA: DEL PAGO.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="13bc414c-eaa4-404e-bec8-425dbf68463a" x="0" y="17" width="555" height="150"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[En caso de que el TARJETAHABIENTE pagare únicamente el valor consignado bajo la leyenda “PAGO MÍNIMO” o “MÍNIMO A PAGAR”, o un valor inferior al “PAGO TOTAL” se estaría acogiendo voluntariamente y automáticamente a diferir el saldo de sus consumos corrientes, no cubiertos del periodo, al plazo definido por EL BANCO. El “PAGO MÍNIMO” está conformado por la sumatoria de los impuestos o contribuciones, cargos y gastos, intereses, servicios financieros, cuotas de los consumos diferidos y un factor, previamente determinado por EL BANCO, de los consumos corrientes del periodo. Este factor de cálculo podrá variar de acuerdo a las políticas de EL BANCO, en cuyo caso será oportunamente dado a conocer al TARJETAHABIENTE a través del estado de cuenta u otros canales que EL BANCO disponga. En caso de que el TARJETAHABIENTE optase por el “PAGO TOTAL”, estaría acogiéndose a la sumatoria de los impuestos o contribuciones, cargos y gastos, intereses, servicios financieros, cuotas de los consumos diferidos y los consumos corrientes del período.
+Si el TARJETAHABIENTE no ha realizado consumos en modalidad de corriente, el valor del pago total será igual al valor del pago mínimo del periodo en curso. EL TARJETAHABIENTE puede utilizar la red de canales disponibles de EL BANCO para realizar el pago en cualquier modalidad “PAGO TOTAL” o “PAGO MÍNIMO”.
+El plazo de diferido del saldo de consumos corrientes no cubiertos por el “PAGO MÍNIMO” o por el pago de un valor inferior al “PAGO TOTAL” podrá variar de acuerdo a las políticas de EL BANCO, en cuyo caso será oportunamente dado a conocer al TARJETAHABIENTE, a través del estado de cuenta u otros canales que EL BANCO disponga.
+El TARJETAHABIENTE podrá realizar el pago de los valores que llegue a adeudar a EL BANCO, mediante cualquiera de los sistemas o medios de pago por éste establecidos o que se establezcan, sometiéndose a las condiciones que rijan en cada caso.
+Todo pago relativo a las obligaciones adquiridas por el TARJETAHABIENTE se realizará en moneda de curso legal en el país.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d7b2b6ae-ff58-4f40-b37a-d95f58bc93e2" x="0" y="158" width="555" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OCTAVA: DE LOS CONSUMOS EN EL EXTERIOR.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ba051b45-fa49-442e-993f-e4a3067badbc" x="0" y="174" width="555" height="22"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[Si los consumos se efectuaren en el exterior, la facturación se hará en dólares de los Estados Unidos de América, a la cotización de venta del mercado libre de divisas correspondiente a la fecha que se recibe el débito del exterior, la misma que deberá ser notificada al TARJETAHABIENTE en el estado de cuenta correspondiente.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ffe603e8-4c2b-4062-bca5-dd23d52f4c67" x="0" y="193" width="555" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOVENA: DEL ESTADO DE CUENTA.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0ce7dc38-ef3a-4148-9563-cae843848ca0" x="0" y="209" width="555" height="86"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[EL BANCO enviará de manera mensual el estado de cuenta al TARJETAHABIENTE, mediante un documento que se enviará a la última dirección registrada por el TARJETAHABIENTE, o a través de la dirección de correo electrónico que señale el TARJETAHABIENTE, en el mismo formato que el documento impreso, cuando así lo requiera y conste en la respectiva autorización que éste suscriba.
+En el estado de cuenta se consignarán, al menos la información que prevé la normativa vigente.
+EL BANCO no tiene obligación de remitir al TARJETAHABIENTE los originales o copias de ninguna de las notas de cargo, junto con su estado de cuenta.
+Si el TARJETAHABIENTE no recibiere su estado de cuenta, deberá consultar su saldo en las oficinas de EL BANCO, o por los medios electrónicos que éste proporcione a sus TARJETAHABIENTES. El TARJETAHABIENTE no podrá invocar como causa para el no pago oportuno o cancelación de los valores adeudados a EL BANCO, el retraso o falta de recepción del estado de cuenta.
+EL BANCO no emitirá ni enviará el estado de cuenta si el TARJETAHABIENTE no registra movimientos en el respectivo periodo y no hay saldo pendiente de pago.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a30c96b1-8101-4676-80bf-fba8cf833601" x="0" y="292" width="555" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DÉCIMA: DE LOS RECLAMOS POR INCONFORMIDAD CON EL ESTADO DE CUENTA.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="dcb33fcf-3eb5-4fe4-a304-0f8128ca9305" x="0" y="307" width="555" height="67"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[Una vez recibido el estado de cuenta mensual, el TARJETAHABIENTE podrá formular el respectivo reclamo a EL BANCO referente al mismo y a su contenido, de manera particular al valor de los saldos correspondientes a los consumos en el Ecuador y en el exterior.
+De no formular reclamo alguno dentro de los cinco días término luego de recibido el estado de cuenta mensual, se presumirá que el TARJETAHABIENTE está conforme con su contenido y que el saldo registrado es correcto, por lo que EL BANCO queda facultado para exigir el pago de las obligaciones insolutas con base en los respectivos estados de cuenta y/o a sus asientos contables.
+El hecho de que el TARJETAHABIENTE formule observaciones o reclamos no impide que se generen los intereses moratorios, los que se reversarán en caso de que se aceptare el reclamo.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="081a486b-2e02-4b1b-aa5d-24647749c882" x="0" y="371" width="555" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNDÉCIMA: DE LA PÉRDIDA, SUSTRACCIÓN O DETERIORO DE LA TARJETA.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="24d6097f-9da9-4d69-bc5c-502c4c98e608" x="0" y="387" width="555" height="121"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[En caso de pérdida, sustracción, robo, hurto o deterioro de la TARJETA, o vulneración de la seguridad de la clave personal o PIN, el TARJETAHABIENTE, debidamente identificado por nombres completos, número de cédula de identidad o ciudadanía o pasaporte para los ciudadanos extranjeros y número de tarjeta, deberá notificar inmediatamente del particular a EL BANCO, por escrito y/o por teléfono y/u otro medio definido por EL BANCO.
+Cuando el extravío o robo o vulneración se produzca en el extranjero, el TARJETAHABIENTE deberá actuar de idéntica forma ante la institución asociada al sistema de tarjetas de crédito, en el país donde el hecho ocurra o en el lugar más cercano.
+En caso de omitirse el trámite de aviso, el TARJETAHABIENTE será responsable de todas las transacciones suscritas o efectuadas con la clave personal o con la tarjeta extraviada o robada, hasta su vencimiento o eventual recuperación por parte de EL BANCO. Si la TARJETA retorna a poder del TARJETAHABIENTE, éste se obliga a no usarla.
+En los casos descritos, EL BANCO se compromete a otorgar al TARJETAHABIENTE un nuevo número de tarjeta, sin que sea necesario que el TARJETAHABIENTE llene otra solicitud ni firme otro contrato.
+Las partes expresamente convienen en que si EL BANCO llegare a detectar que se intenta o se realiza un fraude o uso indebido de la TARJETA, queda autorizado para bloquear o suspender inmediatamente el uso de la TARJETA, a fin de proteger los intereses del TARJETAHABIENTE, de EL BANCO, y más personas que pudieren resultar perjudicadas, previo aviso dado al TARJETAHABIENTE. Estas acciones no acarrearán ningún tipo de cargo imputable al TARJETAHABIENTE.
+]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="200" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="91fb5436-be8e-445a-aa28-480143299a84" x="0" y="4" width="555" height="10"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DUODÉCIMA: DEL PIN O CLAVE DE SEGURIDAD.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="cc17bfd6-da2b-42d4-b7fc-04fc89999e93" x="0" y="14" width="555" height="86"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[EL BANCO asigna al TARJETAHABIENTE un número secreto o clave individual para cada TARJETA. La clave es de uso personal y su confidencialidad será de exclusiva responsabilidad del (los) TARJETAHABIENTE (S), la misma que les habilitará a realizar avances en efectivo, compras de bienes y/o servicios, por sistemas de medios especiales establecidos o que llegue a establecer EL BANCO, incluyendo expresamente cualquier otro medio que no requiera o no quede constancia de la firma del TARJETAHABIENTE, quien expresa su aceptación respecto de la utilización de la TARJETA en este sentido, asumiendo la responsabilidad que pueda derivarse de la misma.
+El TARJETAHABIENTE se compromete a no dar a conocer a terceras personas el número asignado.
+La clave será entregada al TARJETAHABIENTE en sobre cerrado conjuntamente con la tarjeta de crédito a través de los mecanismos establecidos por EL BANCO, debiendo indicársele la obligatoriedad de cambiar la misma inmediatamente de haberla recibido. Los mecanismos, electrónicos, documentales o presenciales, establecidos para la entrega de la clave personal observarán lo dispuesto por las mejores prácticas de seguridad aplicables para el efecto.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6d7c21d5-2665-42be-ba91-b81b0de362ca" x="0" y="101" width="555" height="10"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DÉCIMA TERCERA: DE LAS LÍNEAS DE CRÉDITO.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d198ea5e-2916-445b-9877-b18d448e259a" x="0" y="110" width="555" height="13"/>
+				<textElement>
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[EL BANCO ofrece a sus TARJETAHABIENTES para el pago de sus consumos, el uso de líneas de crédito.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="de0db02f-db51-4c9d-8e44-26d318b81db0" x="0" y="124" width="555" height="10"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DÉCIMA CUARTA: DEL CUPO ASIGNADO.- ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4040d091-fbbf-4103-81c6-76015c0a8fc5" x="0" y="134" width="555" height="66"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[La aprobación de la solicitud de tarjeta de crédito por parte de EL BANCO significa la concesión de una línea de crédito que será utilizada a través de consumos corrientes o consumos diferidos de acuerdo al saldo de la misma.
+Tal monto o cupo será determinado únicamente por EL BANCO de acuerdo a la capacidad financiera y calificación crediticia del TARJETAHABIENTE, así como a las condiciones del mercado financiero, quien tendrá plena y absoluta potestad para reajustarlos o modificarlos cuando las circunstancias lo ameriten, y con base en el buen uso de la TARJETA por parte del TARJETAHABIENTE, notificándole previamente de estos hechos por alguno de los medios de aviso que se determinen en este contrato.
+El monto inicial asignado por EL BANCO como cupo o línea de crédito también podrá ser revisado a petición verbal o escrita de EL TARJETAHABIENTE.
+]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="3fb7aa69-e3e3-4c9f-b87a-8f80713bc1f6" x="0" y="0" width="555" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pagina 4 de 6"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="728" splitType="Stretch">
+			<subreport>
+				<reportElement uuid="9b4ab950-1668-40e9-886f-35884f0f5856" x="-25" y="0" width="468" height="728"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pide_cliente">
+					<subreportParameterExpression><![CDATA[$P{pide_cliente}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "/reportes/rep_solidario/sub_report_5.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>

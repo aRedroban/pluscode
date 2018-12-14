@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sub_report_prueba" pageWidth="595" pageHeight="800" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="332dcf36-7b48-44b1-b07a-5d4a4294b386">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="pide_cliente" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["C:\\Users\\DESARROLLO\\Desktop\\origin\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+    id,
+    SUBSTRING_INDEX(fecha_gestion, ' ', 1) AS fecha_gestion,
+    lugar_entregaecuenta,
+    CASE
+        WHEN lugar_entregaecuenta = 'DIGITAL' THEN email
+        ELSE email = NULL
+    END AS 'email_estado_cuenta',
+    tipo_identificacion,
+    cedula,
+    apellido_paterno,
+    apellido_materno,
+    CONCAT(primer_nombre, ' ', segundo_nombre) AS nombres,
+    concat(apellido_paterno, ' ', apellido_materno, ' ',primer_nombre, ' ', segundo_nombre) as nombres_completos,
+    genero,
+    estado_civil,
+    fecha_nacimiento,
+    cargas_familiares,
+    nivel_estudios,
+    profesion,
+    'CEDULA' AS tipo_documento_conyugue,
+    identificacion_conyuge,
+    apellido1conyuge,
+    apellido2conyuge,
+    CONCAT(nombre1conyuge, ' ', nombre2conyuge) AS nombres_conyugue,
+    provincia_domicilio,
+    ciudad_domicilio AS canton_domicilio,
+    parroquia_domicilio,
+    barrio_domicilio,
+    numeracion_domicilio,
+    referencia_domicilio,
+    calle_principal_domicilio,
+    calletransversal_domicilio,
+    tipo_vivienda,
+    valor_vivienda AS avaluo,
+    telefono_principal,
+    telefono_celular,
+    email,
+    origen_ingresos,
+    ruc_empresa,
+    nombre_labora,
+    fecha_ingreso,
+    cargo,
+    provincia_trabajo,
+    ciudad_trabajo,
+    parroquia_trabajo,
+    barrio_trabajo,
+    numeracion_trabajo,
+    referencia_trabajo,
+    calle_principal_trabajo,
+    calletransversal_trabajo,
+    telefono_trabajo,
+    apellido1ref_personal,
+    apellido2ref_personal,
+    CONCAT(nombre1ref_personal, ' ',nombre2ref_personal) AS nombres_referencia,
+    telefono_ref_personal,
+    sueldo_ingresos AS ingresos_personales,
+    rentas,
+    remesas,
+    ingreso_familiares,
+    otros_ingresos,
+    gastos_basicos AS alimentacion,
+    servicios_basicos,
+    transporte,
+    otros_gastos,
+    activo_bien AS descripcion_activo,
+    valor_unitario_bien,
+    institucion_pasivo,
+    fecha_emision_pasivo,
+    valor_cuota_pasivo,
+    plazo_pasivo,
+    saldo_pasivo,
+(SELECT logo_empr FROM sis_empresa) AS logo
+FROM
+    clientes
+WHERE
+    id = $P{pide_cliente};]]>
+	</queryString>
+	<field name="id" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_gestion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="lugar_entregaecuenta" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email_estado_cuenta" class="java.lang.String"/>
+	<field name="tipo_identificacion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cedula" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido_paterno" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido_materno" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombres" class="java.lang.String"/>
+	<field name="nombres_completos" class="java.lang.String"/>
+	<field name="genero" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estado_civil" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_nacimiento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cargas_familiares" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nivel_estudios" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="profesion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipo_documento_conyugue" class="java.lang.String"/>
+	<field name="identificacion_conyuge" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido1conyuge" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido2conyuge" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombres_conyugue" class="java.lang.String"/>
+	<field name="provincia_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="canton_domicilio" class="java.lang.String"/>
+	<field name="parroquia_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="barrio_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numeracion_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="referencia_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="calle_principal_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="calletransversal_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipo_vivienda" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="avaluo" class="java.lang.String"/>
+	<field name="telefono_principal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefono_celular" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="origen_ingresos" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ruc_empresa" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre_labora" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_ingreso" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cargo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="provincia_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ciudad_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="parroquia_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="barrio_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numeracion_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="referencia_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="calle_principal_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="calletransversal_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefono_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido1ref_personal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido2ref_personal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombres_referencia" class="java.lang.String"/>
+	<field name="telefono_ref_personal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ingresos_personales" class="java.lang.String"/>
+	<field name="rentas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="remesas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ingreso_familiares" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="otros_ingresos" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alimentacion" class="java.lang.String"/>
+	<field name="servicios_basicos" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="transporte" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="otros_gastos" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descripcion_activo" class="java.lang.String"/>
+	<field name="valor_unitario_bien" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="institucion_pasivo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_emision_pasivo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="valor_cuota_pasivo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="plazo_pasivo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="saldo_pasivo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="logo" class="java.lang.Object"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="17" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="fa731566-12c6-49e4-a62e-ca35d5e29a75" x="0" y="0" width="555" height="17"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[B. CONTRATO DE EMISIÓN Y USO DE TARJETA DE CRÉDITO "ALIA"]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="661" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="e584cb2d-585f-46d1-9f9d-8ea3526de5af" x="0" y="0" width="249" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRIMERA: COMPARECIENTES.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="68422e39-3ade-4ae7-8926-5167c1aa0207" x="0" y="17" width="555" height="40"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[Comparecen a la celebración del presente contrato de emisión y uso de tarjeta de crédito, por una parte, BANCO SOLIDARIO S.A., en calidad de emisior de la tarjeta "ALIA SOLIDARIO", a quien en adelante simplemente se le denominará EL BANCO; y, por otra parte]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="06864d69-2f5f-49e1-979e-d17a31f4cf77" x="342" y="23" width="211" height="17"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombres_completos}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="8eec07be-b162-4fba-967c-ed5318e4cc9b" x="0" y="33" width="330" height="17"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[ a quien en adelante se le denominará el TARJETAHABIENTE TITULAR.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e431d03b-da4b-4268-aef7-43ef22621d05" x="0" y="50" width="555" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SEGUNDA: DERECHOS DEL TARJETAHABIENTE.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4652edae-0c0a-4c29-868d-ff3ffa16c178" x="0" y="66" width="555" height="48"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[Con la tarjeta de crédito “ALIA SOLIDARIO”, el TARJETAHABIENTE podrá efectuar consumos dentro del país y en el exterior, siempre y cuando las tarjetas solicitadas tengan esa cobertura, y adquirir bienes y/o servicios, previa suscripción de la respectiva nota de cargo, bajo cualquiera de los sistemas de crédito corriente y diferido que ofrece EL BANCO, o bajo cualquier otro medio de venta sin la firma del documento respectivo; podrá realizar avances en efectivo en todos los cajeros automáticos habilitados al efecto en el Ecuador y en otros lugares del mundo; podrá utilizar y gozar de los demás servicios y beneficios gratuitos o remunerados que EL BANCO haga extensivos a sus usuarios.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="fc792e4a-6618-4463-b9f4-7b75c8fd51a9" x="1" y="113" width="555" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TERCERA: INTRASFERIBILIDAD DE LA TARJETA DE CRÉDITO.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1358b884-45e4-4599-8d98-0114446019d7" x="0" y="129" width="555" height="39"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[La TARJETA emitida a nombre del TARJETAHABIENTE constituye un documento de uso personal e intransferible, por lo tanto éste es responsable por su correcta utilización, quedando expresamente prohibido entregarla a otra persona para su uso.
+EL TARJETAHABIENTE se obliga a firmar en el lugar especificado en el reverso de la tarjeta, al momento de recibirla, sin perjuicio de que la TARJETA, de ser aplicable, tenga la firma de su titular termograbada.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="501b7608-7ced-4b22-851f-a669284d8948" x="1" y="167" width="555" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CUARTA: DE LAS TARJETAS ADICIONALES.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4cc2948f-b41b-4de2-97ac-8a2f66fd07b2" x="1" y="183" width="555" height="66"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[El TARJETAHABIENTE podrá solicitar tarjetas adicionales a nombre de las personas que indique y EL BANCO tendrá la facultad de aceptar o rechazar el pedido. De ser aprobada(s), el solicitante se obliga solidaria e indivisiblemente con el (los) TARJETAHABIENTE (S) ADICIONAL (ES) al cumplimiento de todas y cada una de las obligaciones derivadas de la aplicación y ejecución del presente contrato, especialmente a la cancelación de los saldos deudores y la devolución de las tarjetas, en caso de ser requeridas. El (los) TARJETAHABIENTE(S) ADICIONAL(ES) se obliga(n) en los mismos términos y condiciones establecidos para el TARJETAHABIENTE TITULAR.
+El (los) TARJETAHABIENTE(S) ADICIONAL(ES) no cederá(n) ni total ni parcialmente, los derechos que se adquieren por este documento, y será(n) igualmente responsable(s) por su incorrecta utilización.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="02840170-3cf7-4197-952c-ed1e70e59e69" x="1" y="244" width="555" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[QUINTA: DE LA PROPIEDAD DE LA TARJETA.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5d221f53-7d99-449f-a89d-9479213c570c" x="1" y="261" width="555" height="86"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[EL BANCO es el propietario exclusivo de las TARJETAS PRINCIPAL Y ADICIONAL(ES) que lleguen a emitirse.
+Si el TARJETAHABIENTE incumpliere cualquiera de las obligaciones contenidas en este contrato, EL BANCO se reserva el derecho de retirarla, cancelarla o suspenderla en cualquier momento, lo cual comunicará al TARJETAHABIENTE al domicilio que tenga señalado para el envío del estado de cuenta o a través de cualquier otro medio electrónico o físico.
+El TARJETAHABIENTE se compromete a dejar de utilizar y devolver la TARJETA inmediatamente después de ser notificado; si continuara utilizándola, estará sujeto a las sanciones legales correspondientes, comprometiéndose también en forma inmediata a satisfacer todas las obligaciones contraídas a través de la TARJETA a favor de EL BANCO.
+El TARJETAHABIENTE responderá por el uso de la TARJETA y de manera particular por el pago de todos los consumos efectuados que consten como tales en su estado de cuenta, hasta que se devuelva a EL BANCO la TARJETA cuya cancelación se ha solicitado.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="269796e0-566b-4639-8f24-3fd8223284cc" x="1" y="345" width="555" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SEXTA: DE LOS CARGOS Y GASTOS.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="44659297-ecf6-46af-a357-d1aeaecd1920" x="0" y="362" width="554" height="299"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[El TARJETAHABIENTE declara haber recibido de EL BANCO un ejemplar del folleto de servicios y cargos vigentes y del instructivo general de tarjetas de crédito, documentos por los que ha sido informado sobre la metodología de cálculo y los cargos aplicables a la emisión de cada tarjeta de crédito, a las transacciones que realice con la tarjeta de crédito, tasas de interés aplicables, cargos y costos. El folleto de servicios y cargos forma parte integrante de este contrato.
+Los servicios adicionales que posteriormente ofreciere EL BANCO deberán ser puestos en conocimiento del TARJETAHABIENTE quien podrá contratarlos o no. En ningún caso se entenderá aceptación tácita de los mismos por parte del usuario.
+Los intereses de financiamiento se calcularán con base en los saldos de los consumos de cada mes, conforme las disposiciones previstas en la normativa vigente.
+El TARJETAHABIENTE que efectúe adquisiciones de bienes, servicios o consumos en los establecimientos afiliados a los sistemas de la tarjeta ALIA SOLIDARIO, se obliga de manera incondicional e irrevocable a rembolsar a EL BANCO el valor íntegro de los consumos realizados por él o por los TARJETAHABIENTES ADICIONALES, más los intereses, cargos, gastos y demás costos, debidamente sustentados por EL BANCO, de acuerdo a los valores constantes en los respectivos estados de cuenta.
+De igual manera, el TARJETAHABIENTE se compromete al pago de los consumos realizados en el país o en el exterior mediante el sistema de pedido y aceptación telefónica, internet, catálogos, revistas, órdenes de cargo, cupones y otros medios de venta implementados por la marca o franquicia que corresponda y los establecimientos afiliados a la red respectiva, aún cuando en este tipo de transacciones no quede constancia firmada por el TARJETAHABIENTE. En caso de inconformidad del cliente respecto de los consumos realizados, EL BANCO se compromete a facilitar los mecanismos necesarios que permitan demostrar los consumos efectuados mediante esta modalidad.
+El TARJETAHABIENTE se obliga a cancelar el saldo total dentro de los quince (15) días posteriores a la fecha de emisión del estado de cuenta, o el valor mínimo a pagar dentro de este mismo periodo. Dentro de este plazo, la cancelación total o parcial de los consumos no causará cargo alguno por concepto de intereses al TARJETAHABIENTE.
+Si vencido el plazo, el TARJETAHABIENTE no hubiere cubierto los valores pendientes de cancelación, EL BANCO tendrá derecho a cobrar intereses normales desde la fecha de vencimiento del estado de cuenta; intereses de mora, cargos por honorarios de abogados y gastos judiciales y extrajudiciales de cobranza, siempre y cuando estén debidamente documentados, hasta la fecha de pago efectivo.
+En virtud de lo expuesto en el párrafo anterior, El TARJETAHABIENTE declara haber sido informado de manera previa sobre estos hechos y en tal virtud faculta a EL BANCO para efectuar las gestiones que estime convenientes, directamente o por intermedio de la empresa de cobranza que EL BANCO designe, para obtener el pago de las obligaciones. Para tal efecto, con la suscripción del presente contrato, faculta a EL BANCO para contratar a su nombre y cargo a la empresa especializada de cobranza que estime conveniente. De igual manera, faculta a EL BANCO y/o al tercero designado por ésta para la gestión de cobranza, a proveer información suficiente a su empleador y/o a las personas y empresas detalladas como referencias las cuales constan en la solicitud de tarjeta correspondiente, sobre su comportamiento crediticio, relevándoles de la reserva si la debiera guardar.
+Si la obligación de uno o más pagos mínimos a efectuar venciere en día feriado se entenderá exigible el primer día hábil siguiente.
+El TARJETAHABIENTE podrá en cualquier momento pagar en forma anticipada la totalidad o parte de sus consumos diferidos, solicitando la pre cancelación de los mismos en los puntos de atención de El BANCO. En caso de prepago parcial o total de consumos diferidos, se realizará el recálculo de intereses de financiamiento sobre el saldo de capital pendiente al momento de la cancelación. En ninguno de los casos mencionados EL BANCO podrá cobrar recargo alguno, a no ser que la tarjeta se hubiere cancelado por morosidad.
+]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="6de2a1df-2739-4e10-8bb6-1e9a08ee06e7" x="1" y="0" width="552" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pagina 3 de 6"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="380" splitType="Stretch">
+			<subreport>
+				<reportElement uuid="1cbe05a7-c1e3-45ce-9506-d606eea189c3" x="-18" y="0" width="531" height="380"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pide_cliente">
+					<subreportParameterExpression><![CDATA[$P{pide_cliente}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "/reportes/rep_solidario/sub_sub_rep_solidario.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Tarjetas Solidario</title>
+        <link rel="shortcut icon" type="image/x-icon" href="imagenes/icono.ico"/>
+	<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="imagenes/icono.ico"/>
+    </h:head>     
+    <script type="text/javascript" src="resources/sistema/sistema.js"/>
+    <link rel="stylesheet" type="text/css" href="resources/components/bootstrap/dist/css/bootstrap.min.css"/>    
+    <link rel="stylesheet" type="text/css" href="resources/login/css/home.css"/>
+    <h:body  onload="abrirPopUp('login.jsf');">
+	
+        <p:growl autoUpdate="true" showDetail="true" sticky="true"/>  
+        <div class="site-wrapper">
+            <div class="site-wrapper-inner">
+                <div class="cover-container">
+                    <div class="masthead clearfix">
+                        <!--<center><img class="logo" src="imagenes/solidario.png" /></center>-->
+                        <center><img class="logo" src="imagenes/logo_plus.png" /></center>
+                    </div>
+                    <div class="inner cover">
+                        <h1 class="cover-heading">TARJETAS SOLIDARIO <small> 1.0</small> </h1> 
+                        <p  class="texto">Se ha abierto una nueva ventana si no la visualiza por favor presione el botón.</p>
+                        <p>
+                            <a onclick="abrirPopUp('login.jsf');" class="btn btn-lg btn-success">Abrir Sistema</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
+

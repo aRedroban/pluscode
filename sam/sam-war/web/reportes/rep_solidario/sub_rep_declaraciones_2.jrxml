@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sub_rep_declaraciones_2" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1987a987-58bb-407d-9505-4deca317e986">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="371"/>
+	<parameter name="pide_cliente" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+    id,
+    SUBSTRING_INDEX(fecha_gestion, ' ', 1) AS fecha_gestion,
+    lugar_entregaecuenta,
+    CASE
+        WHEN lugar_entregaecuenta = 'DIGITAL' THEN email
+        ELSE email = NULL
+    END AS 'email_estado_cuenta',
+    tipo_identificacion,
+    cedula,
+    apellido_paterno,
+    apellido_materno,
+    CONCAT(primer_nombre, ' ', segundo_nombre) AS nombres,
+    concat(apellido_paterno, ' ', apellido_materno, ' ',primer_nombre, ' ', segundo_nombre) as nombres_completos,
+    genero,
+    estado_civil,
+    fecha_nacimiento,
+    cargas_familiares,
+    nivel_estudios,
+    profesion,
+    'CEDULA' AS tipo_documento_conyugue,
+    identificacion_conyuge,
+    apellido1conyuge,
+    apellido2conyuge,
+    CONCAT(nombre1conyuge, ' ', nombre2conyuge) AS nombres_conyugue,
+    provincia_domicilio,
+    ciudad_domicilio AS canton_domicilio,
+    parroquia_domicilio,
+    barrio_domicilio,
+    numeracion_domicilio,
+    referencia_domicilio,
+    calle_principal_domicilio,
+    calletransversal_domicilio,
+    tipo_vivienda,
+    valor_vivienda AS avaluo,
+    telefono_principal,
+    telefono_celular,
+    email,
+    origen_ingresos,
+    ruc_empresa,
+    nombre_labora,
+    fecha_ingreso,
+    cargo,
+    provincia_trabajo,
+    ciudad_trabajo,
+    parroquia_trabajo,
+    barrio_trabajo,
+    numeracion_trabajo,
+    referencia_trabajo,
+    calle_principal_trabajo,
+    calletransversal_trabajo,
+    telefono_trabajo,
+    apellido1ref_personal,
+    apellido2ref_personal,
+    CONCAT(nombre1ref_personal, ' ',nombre2ref_personal) AS nombres_referencia,
+    telefono_ref_personal,
+    sueldo_ingresos AS ingresos_personales,
+    rentas,
+    remesas,
+    ingreso_familiares,
+    otros_ingresos,
+    gastos_basicos AS alimentacion,
+    servicios_basicos,
+    transporte,
+    otros_gastos,
+    activo_bien AS descripcion_activo,
+    valor_unitario_bien,
+    institucion_pasivo,
+    fecha_emision_pasivo,
+    valor_cuota_pasivo,
+    plazo_pasivo,
+    saldo_pasivo,
+(SELECT logo_empr FROM sis_empresa) AS logo
+FROM
+    clientes
+WHERE
+    id = $P{pide_cliente};]]>
+	</queryString>
+	<field name="id" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_gestion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="lugar_entregaecuenta" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email_estado_cuenta" class="java.lang.String"/>
+	<field name="tipo_identificacion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cedula" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido_paterno" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido_materno" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombres" class="java.lang.String"/>
+	<field name="nombres_completos" class="java.lang.String"/>
+	<field name="genero" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estado_civil" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_nacimiento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cargas_familiares" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nivel_estudios" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="profesion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipo_documento_conyugue" class="java.lang.String"/>
+	<field name="identificacion_conyuge" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido1conyuge" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido2conyuge" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombres_conyugue" class="java.lang.String"/>
+	<field name="provincia_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="canton_domicilio" class="java.lang.String"/>
+	<field name="parroquia_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="barrio_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numeracion_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="referencia_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="calle_principal_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="calletransversal_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipo_vivienda" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="avaluo" class="java.lang.String"/>
+	<field name="telefono_principal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefono_celular" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="origen_ingresos" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ruc_empresa" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre_labora" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_ingreso" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cargo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="provincia_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ciudad_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="parroquia_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="barrio_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numeracion_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="referencia_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="calle_principal_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="calletransversal_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefono_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido1ref_personal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido2ref_personal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombres_referencia" class="java.lang.String"/>
+	<field name="telefono_ref_personal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ingresos_personales" class="java.lang.String"/>
+	<field name="rentas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="remesas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ingreso_familiares" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="otros_ingresos" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alimentacion" class="java.lang.String"/>
+	<field name="servicios_basicos" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="transporte" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="otros_gastos" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descripcion_activo" class="java.lang.String"/>
+	<field name="valor_unitario_bien" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="institucion_pasivo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_emision_pasivo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="valor_cuota_pasivo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="plazo_pasivo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="saldo_pasivo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="logo" class="java.lang.Object"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="08694546-bce4-4994-bf37-bcb94348bfa9" x="0" y="20" width="555" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DECLARACIONES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8e98c864-8a71-4953-a285-5b0c8cfdff42" x="427" y="0" width="56" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Versión: 003]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6d74a50-f064-4a74-8abe-e9b87dab3bcf" x="500" y="0" width="41" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[jun-18]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="604" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="6ef932ee-51b8-4ded-bad1-c6f6266a0d1e" x="0" y="0" width="555" height="123"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[Alcance de la presente solicitud: Declaro (Declaramos) conocer y aceptar que el presente documento es una solicitud de crédito de carácter general y que, las manifestaciones y compromisos aquí constantes, rigen y se entienden incorporados a todo documento que sustente la concesión de operaciones de crédito y/o a la prestación de servicios financieros específicos que solicite (solicitemos) o llegare (lleguemos) a solicitar en el futuro. Para acceder a cualquier producto o servicio financiero específico, me (nos) comprometo (comprometemos) a proveer y/o actualizar la información aquí contenida, así como a suscribir y entregar la documentación que sea necesaria para su otorgamiento. Origen lícito de fondos y destino del crédito: Declaro (declaramos) bajo juramento que toda la información contenida en esta solicitud es veraz y fidedigna y que los bienes e ingresos relacionados con mi (nuestra) actividad económica, antes detallados, así como los bienes entregados en garantía, no provienen de actividades ilícitas penadas por Ley. Declaro (declaramos) que los fondos recibidos no serán destinados a la realización o financiamiento de ninguna actividad ilícita penada por Ley. Autorizo (Autorizamos) expresamente al Banco para que los valores producto de esta nueva operación de crédito solicitada sean aplicados, de ser el caso, como pago parcial o total a los créditos y obligaciones que mantenga (mantengamos) con el Banco. Tasa de interés, cuotas y liquidación del crédito: De manera especial declaro (declaramos) haber sido informado(s) y conocer plenamente que los montos correspondientes a intereses podrán ser calculados hasta por la tasa máxima del segmento correspondiente, aprobada por el Órgano competente. Así como también, haber sido informado(s) sobre el número, monto, frecuencia y fechas máximas de cuotas o pagos programados para la cancelación del crédito, que constan en los correspondientes documentos de obligación, todo lo cual acepto (aceptamos) de manera expresa.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="15a80ed6-7e8e-4256-94fb-39ef82847040" x="0" y="123" width="555" height="481"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[Inexistencia de vinculación: De lo que conozco (conocemos) a la presente fecha, no mantengo (mantenemos) vinculación por propiedad, por administración ni por gestión con el Banco; sin embargo, me (nos) comprometo (comprometemos) a poner en inmediato conocimiento del Banco, en caso de llegar a incurrir en una o más de las causales de vinculación establecidas en la normativa aplicable vigente, deslindando al Banco de toda responsabilidad para estos efectos. Cobranzas: Faculto (Facultamos) al acreedor para efectuar las gestiones que estime convenientes, directamente o por intermedio de la empresa de cobranza que el acreedor designe, a fin de obtener el pago total de mis (nuestras) obligaciones. Para tal efecto, faculto (facultamos) al Banco para contratar a mi (nuestro) nombre y cargo a la empresa especializada de cobranza que estime conveniente. De manera especial, faculto (facultamos) al acreedor y/o al tercero designado por este para la gestión de cobranza, a proveer y obtener información suficiente de mi (nuestro) empleador y/o a las personas y empresas, detalladas y referidas en el presente documento, sobre mi (nuestro) comportamiento crediticio, relevándoles de la reserva, si la debieran guardar. Tarifa y costos de Cobranza: Serán de mí (nuestra) cuenta, la tarifa, costos y honorarios incurridos, por los servicios de cobranza extra judicial y judicial realizada, valores que constan en el tarifario respectivo, los mismos que declaro (declaramos) haber conocido de manera previa y aceptada expresamente. Estos valores se aplicarán a toda cuota que presentare un atraso de pago respecto de su fecha de vencimiento. Las modificaciones a la tarifa, costos y honorarios serán efectuadas e informadas de conformidad con la normativa legal aplicable. Autorización para envío de información: Autorizo (Autorizamos) al Banco directamente o, por intermedio de la(s) empresa(s) de cobranza designada(s), a remitir a mis (nuestras) direcciones del domicilio, lugar de trabajo, correo electrónico y/o a los teléfonos celulares registra dos en esta solicitud, información relevante sobre mis (nuestras) obligaciones de crédito tales como fechas recordatorias y/o máximas de pago, vencimientos registrados, valores a cancelar, entre otros. Los mensajes electrónicos remitidos bajo estas condiciones, no podrán ser considerados como correo electrónico no deseado. La presente autorización podrá ser revocada en cualquier momento mediante comunicación escrita, telefónica o electrónica dirigida al remitente. Firmo en constancia de haber solicitado el registro en forma confidencial y directa de los dispositivos para el envío de las notificaciones de transacciones realizadas a través de los canales del Banco Solidario. Seguros asociados a operaciones activas: Declaro (Declaramos) conocer y haber sido informado(s) que el Banco, amparado en las disposiciones contenidas en la normativa vigente y, de acuerdo con sus Políticas de Crédito, podrá requerir, en caso de aprobarse la presente solicitud de crédito, la contratación de seguros asociados a las operaciones de crédito, para proteger al acreedor, al deudor o a los bienes recibidos en garantía señalados en la presente solicitud. Garantías: (en caso de que la presente solicitud sea aprobada) Acepto (Aceptamos) formalizar la constitución y entrega de las garantías ofrecidas, para asegurar el cumplimiento de mi (nuestras) obligaciones con el Banco. El Banco se reserva la facultad de aceptar o no las garantías por mi (nosotros) ofrecidas, de conformidad con sus políticas, metodologías y normativa interna de crédito. Garantes: El (los) garante(s), de existir, declara(n) expresamente que renuncia (n) a los beneficios de domicilio, división, orden y excusión y se constituye (n) en deudor (es) del Banco en los mismos términos y durante la vigencia de las operaciones de crédito presentes o futuras que sean concedidas al (a los) deudor (es) principal (es), con amparo en la presente solicitud y hasta su total cancelación. Información de la Central de Riesgo y Burós de Crédito: Autorizo (Autorizamos) al Banco o a cualquier  cesionario o endosatario para que, cuantas veces sean necesarias, obtenga de y/o valide con cualquier fuente de información, incluyendo la Central de Riesgos, los burós de  información crediticia autorizados para operar en el país, las personas naturales y los establecimientos de comercio, información sobre mi (nuestro) empleador, personas señaladas como referencias, instituciones financieras de crédito, de cobranza, compañías emisoras o administradoras de tarjetas de crédito y cualquier otra entidad, mis (nuestras) referencias personales y/o patrimoniales del pasado, del presente y las que se generen en el futuro, sea como deudor(es) principal(es), codeudor(es) o garante(s), así como sobre mi (nuestro) comportamiento crediticio, manejo de cuentas bancarias, tarjetas de crédito y, en general, sobre el cumplimiento de mis (nuestras) obligaciones. Faculto expresamente al Banco para transferir o entregar a las mismas personas o entidades, la información relacionada con mi (nuestro) comportamiento crediticio. En caso de que el Banco, ceda o transfiera cartera adeudada por mi (nosotros), el cesionario o adquiriente de la misma queda desde ahora expresamente facultado, para realizar las mismas actividades, establecidas en este acápite. Cualquier cambio en la información reportada en la presente solicitud será comunicado por mí (nosotros) inmediatamente al Banco. Estudios técnicos: Autorizo (Autorizamos) al Banco a realizar los estudios técnicos financieros necesarios para este tipo de operaciones, tales como levantamiento de información económica o evaluación de mí (nuestra) capacidad de endeudamiento, comprometiéndome (comprometiéndonos) a proporcionar toda la información necesaria para agilizar el curso del proceso del crédito. Pago de avalúos y otros servicios de terceros: Solicito (Solicitamos) y autorizo (autorizamos) al Banco a cancelar, por mi (nuestra) cuenta con cargo al crédito solicitado por medio del presente documento, los valores correspondientes a honorarios por servicios de avalúos, peritaje o tasación, servicios fiduciarios de bienes constituidos en prenda a garantía, primas por seguros asociados a las operaciones activas, a cualquier otro servicio que contrate (contratemos) libre y voluntariamente, así coma los gastos legales, notariales y de registro e inscripción de bienes muebles e inmuebles, todos los cuales son contratados con mi (nuestro) consentimiento, valores que cancelar (cancelaremos) en los términos acordados en el documento de obligación correspondiente. En caso de seguros o servicios que deban cancelarse periódicamente, autorizo (autorizamos) al Banco a recaudarlos, junto con la cuota mensual del crédito. Los valores aquí expresados no podrán ser considerados, baja ningún concepto, como comisión, tarifa, cargo o servicio financiero que represente ingreso adicional a favor del Banco. Documentación de crédito: Acepto (Aceptamos) que la documentación entregada como habilitante a esta solicitud no me (nos) ser devuelta. Transparencia de información: Se entienden incorporadas a la presente solicitud de crédito las disposiciones de la Superintendencia de Bancos y de la Junta de Política y Regulación Monetaria y Financiera, relacionadas con la divulgación de costos financieros y transparencia de información crediticia. Declaro (declaramos) y acepto (aceptamos) haber sido informado (s), de forma previa, completa, clara y precisa, sobre los costos de los servicios ofertados por el Banco, la cual se encuentra en pizarras de información y documentos que he (hemos) recibido del Banco de manera previa a la suscripción del presente documento. Acepto (Aceptamos) que las modificaciones a dichos costos y tarifas serán efectuadas e informadas de conformidad con la normativa vigente aplicable. Declaro (Declaramos) que conozco (conocemos) el derecho que tiene el acreedor de endosar, ceder a transferir libremente, a cualquier título, la cartera que se origine en virtud de la presente solicitud de crédito, sin que sea necesario mi (nuestro) consentimiento expreso para ella, sin perjuicio de la información que, sobre el ejercicio de este derecho el Banco realice a través de cualquier canal de información. Autorización para actividades de Publicidad: Autorizo (Autorizamos) expresamente al Banco para que, de manera directa o por intermedio de la(s) empresa(s) que difunden o realizan publicidad, incluya mis datos en actividades o campañas de mercadeo directo o de publicidad en general. Ratificación: Ratifico (Ratificamos) que he (hemos) firmado el presente documento con posterioridad al registro de toda la información solicitada en este formulario.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<lastPageFooter>
+		<band/>
+	</lastPageFooter>
+	<summary>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement uuid="c8aa40a9-f81b-47b4-85c9-647cb04b31d2" x="0" y="0" width="555" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pagina 2 de 6"]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
