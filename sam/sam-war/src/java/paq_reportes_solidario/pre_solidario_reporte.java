@@ -1,13 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package paq_reportes_solidario;
 
 /**
  *
- * @author ANDRES
+ * @author Andres Redroban
+ * Inicio de importacion de paquetes
  */
 import static com.lowagie.text.pdf.PdfFileSpecification.url;
 import framework.aplicacion.TablaGenerica;
