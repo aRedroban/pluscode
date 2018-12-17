@@ -80,11 +80,40 @@ public class pre_permisos extends Pantalla {
         PanelTabla pat_panel3 = new PanelTabla();
         pat_panel3.setPanelTabla(tab_tabla3);
 
+        tab_tabla4.setId("tab_tabla4");
+        tab_tabla4.setIdCompleto("tab_tabulador:tab_tabla4");
+        tab_tabla4.setTabla("SIS_PERFIL_OBJETO", "IDE_PEOB", 4);
+        tab_tabla4.getColumna("IDE_OBOP").setCombo("SELECT IDE_OBOP,NOM_OBOP || ' '|| ID_OBOP,NOM_OPCI FROM SIS_OBJETO_OPCION,SIS_OPCION WHERE SIS_OPCION.IDE_OPCI = SIS_OBJETO_OPCION.IDE_OPCI ORDER BY NOM_OPCI,NOM_OBOP");
+        tab_tabla4.getColumna("IDE_OBOP").setAutoCompletar();
+        tab_tabla4.getColumna("VISIBLE_PEOB").setCheck();
+        tab_tabla4.getColumna("LECTURA_PEOB").setCheck();
+        tab_tabla4.getColumna("VISIBLE_PEOB").setValorDefecto("true");
+        tab_tabla4.getColumna("IDE_PEOB").setUnico(true);
+        tab_tabla4.getColumna("IDE_PERF").setUnico(true);
+        tab_tabla4.setRows(20);
+        tab_tabla4.dibujar();
+        PanelTabla pat_panel4 = new PanelTabla();
+        pat_panel4.setPanelTabla(tab_tabla4);
 
+        tab_tabla5.setId("tab_tabla5");
+        tab_tabla5.setIdCompleto("tab_tabulador:tab_tabla5");
+        tab_tabla5.setTabla("SIS_PERFIL_CAMPO", "IDE_PECA", 5);
+        tab_tabla5.getColumna("IDE_CAMP").setCombo("SELECT IDE_CAMP,NOM_CAMP,TABLA_TABL FROM SIS_CAMPO,SIS_TABLA WHERE SIS_CAMPO.IDE_TABL = SIS_TABLA.IDE_TABL ORDER BY TABLA_TABL,NOM_CAMP");
+        tab_tabla5.getColumna("IDE_CAMP").setAutoCompletar();
+        tab_tabla5.getColumna("VISIBLE_PECA").setValorDefecto("true");
+        tab_tabla5.getColumna("VISIBLE_PECA").setCheck();
+        tab_tabla5.getColumna("LECTURA_PECA").setCheck();        
+        tab_tabla5.getColumna("IDE_PERF").setUnico(true);
+        tab_tabla5.getColumna("IDE_CAMP").setUnico(true);
+        tab_tabla5.setRows(20);
+        tab_tabla5.dibujar();
+        PanelTabla pat_panel5 = new PanelTabla();
+        pat_panel5.setPanelTabla(tab_tabla5);
 
         tab_tabulador.agregarTab("OPCIONES", pat_panel3);
         tab_tabulador.agregarTab("REPORTES", pat_panel2);
-
+        tab_tabulador.agregarTab("OBJETOS COMPONENTES", pat_panel4);
+        tab_tabulador.agregarTab("CAMPOS", pat_panel5);
 
         Division div_division = new Division();
         div_division.setId("div_division");
@@ -99,14 +128,14 @@ public class pre_permisos extends Pantalla {
         sel_rep.setId("sel_rep");
         agregarComponente(sel_rep);
 
-       /* set_perfiles.setId("set_perfiles");
+        set_perfiles.setId("set_perfiles");
         set_perfiles.setSeleccionTabla("select IDE_PERF,upper(NOM_PERF) as Perfil,DESCRIPCION_PERF from SIS_PERFIL", "ide_perf");
         set_perfiles.getBot_aceptar().setMetodo("aceptarReporte");
         set_perfiles.setTitle("SELECCION DE PERFILES");
-        agregarComponente(set_perfiles);*/
+        agregarComponente(set_perfiles);
     }
 
-  /*  @Override
+    @Override
     public void aceptarReporte() {
         // TODO Auto-generated method stub
         switch (rep_reporte.getReporteSelecionado()) {
@@ -162,7 +191,7 @@ public class pre_permisos extends Pantalla {
     public void abrirListaReportes() {
         // TODO Auto-generated method stub
         rep_reporte.dibujar();
-    }*/
+    }
 
     @Override
     public void insertar() {
@@ -187,6 +216,14 @@ public class pre_permisos extends Pantalla {
     @Override
     public void eliminar() {
         utilitario.getTablaisFocus().eliminar();
+    }
+
+    public Tabla getTab_tabla5() {
+        return tab_tabla5;
+    }
+
+    public void setTab_tabla5(Tabla tab_tabla5) {
+        this.tab_tabla5 = tab_tabla5;
     }
 
     public Tabla getTab_tabla1() {
@@ -221,14 +258,6 @@ public class pre_permisos extends Pantalla {
         this.tab_tabla4 = tab_tabla4;
     }
 
-    public Tabla getTab_tabla5() {
-        return tab_tabla5;
-    }
-
-    public void setTab_tabla5(Tabla tab_tabla5) {
-        this.tab_tabla5 = tab_tabla5;
-    }
-
     public Reporte getRep_reporte() {
         return rep_reporte;
     }
@@ -245,14 +274,6 @@ public class pre_permisos extends Pantalla {
         this.sel_rep = sel_rep;
     }
 
-    public Map getMap_parametros() {
-        return map_parametros;
-    }
-
-    public void setMap_parametros(Map map_parametros) {
-        this.map_parametros = map_parametros;
-    }
-
     public SeleccionTabla getSet_perfiles() {
         return set_perfiles;
     }
@@ -260,6 +281,4 @@ public class pre_permisos extends Pantalla {
     public void setSet_perfiles(SeleccionTabla set_perfiles) {
         this.set_perfiles = set_perfiles;
     }
-
-
 }
