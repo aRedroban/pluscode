@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sub_sub_rep_solidario" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c28ecb45-26c1-4569-aa00-20f2cd9c5118">
+	<property name="ireport.zoom" value="1.1"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="153"/>
+	<parameter name="pide_cliente" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+    c.id,
+    SUBSTRING_INDEX(fecha_gestion, ' ', 1) AS fecha_gestion,
+    lugar_entregaecuenta,
+    CASE
+        WHEN lugar_entregaecuenta = 'DIGITAL' THEN email
+        ELSE email = NULL
+    END AS 'email_estado_cuenta',
+    tipo_identificacion,
+    cedula,
+    apellido_paterno,
+    apellido_materno,
+    CONCAT(primer_nombre, ' ', segundo_nombre) AS nombres,
+    concat(apellido_paterno, ' ', apellido_materno, ' ',primer_nombre, ' ', segundo_nombre) as nombres_completos,
+    genero,
+    estado_civil,
+    fecha_nacimiento,
+    cargas_familiares,
+    nivel_estudios,
+    profesion,
+    'CEDULA' AS tipo_documento_conyugue,
+    identificacion_conyuge,
+    apellido1conyuge,
+    apellido2conyuge,
+    CONCAT(nombre1conyuge, ' ', nombre2conyuge) AS nombres_conyugue,
+    pd.nombre as provincia_domicilio,
+    cd.nombre AS canton_domicilio,
+    pad.nombre as parroquia_domicilio,
+    bd.nombre as barrio_domicilio,
+    numeracion_domicilio,
+    referencia_domicilio,
+    calle_principal_domicilio,
+    calletransversal_domicilio,
+    tipo_vivienda,
+    valor_vivienda AS avaluo,
+    telefono_principal,
+    telefono_celular,
+    email,
+    origen_ingresos,
+    ruc_empresa,
+    nombre_labora,
+    fecha_ingreso,
+    cargo,
+    pt.nombre as provincia_trabajo,
+    ct.nombre as ciudad_trabajo,
+    pat.nombre as parroquia_trabajo,
+    bt.nombre as barrio_trabajo,
+    numeracion_trabajo,
+    referencia_trabajo,
+    calle_principal_trabajo,
+    calletransversal_trabajo,
+    telefono_trabajo,
+    apellido1ref_personal,
+    apellido2ref_personal,
+    CONCAT(nombre1ref_personal, ' ',nombre2ref_personal) AS nombres_referencia,
+    telefono_ref_personal,
+    sueldo_ingresos AS ingresos_personales,
+    rentas,
+    remesas,
+    ingreso_familiares,
+    otros_ingresos,
+    gastos_basicos AS alimentacion,
+    servicios_basicos,
+    transporte,
+    otros_gastos,
+    activo_bien AS descripcion_activo,
+    valor_unitario_bien,
+    institucion_pasivo,
+    fecha_emision_pasivo,
+    valor_cuota_pasivo,
+    plazo_pasivo,
+    saldo_pasivo,
+(SELECT logo_empr FROM sis_empresa) AS logo
+FROM
+    clientes c
+    /*PARA EL DOMICILIO*/
+    LEFT JOIN provincia pd on c.ubicacion_provincia_domicilio = pd.id
+    LEFT JOIN ciudad cd on c.ubicacion_canton_domicilio = cd.codigo_ubicacion
+    LEFT JOIN parroquia pad on c.ubicacion_parroquia_domicilio = pad.codigo_ubicacion
+    LEFT JOIN barrio bd on c.ubicacion_barrio_domicilio = bd.codigo_ubicacion
+    /*PARA EL TRABAJO*/
+    LEFT JOIN provincia pt on c.ubicacion_provincia_trabajo = pt.id
+    LEFT JOIN ciudad ct on c.ubicacion_canton_trabajo = ct.codigo_ubicacion
+    LEFT JOIN parroquia pat on c.ubicacion_parroquia_trabajo = pat.codigo_ubicacion
+    LEFT JOIN barrio bt on c.ubicacion_barrio_trabajo = bt.codigo_ubicacion
+WHERE
+    c.id = $P{pide_cliente};]]>
+	</queryString>
+	<field name="id" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_gestion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="lugar_entregaecuenta" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email_estado_cuenta" class="java.lang.String"/>
+	<field name="tipo_identificacion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cedula" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido_paterno" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido_materno" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombres" class="java.lang.String"/>
+	<field name="nombres_completos" class="java.lang.String"/>
+	<field name="genero" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estado_civil" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_nacimiento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cargas_familiares" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nivel_estudios" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="profesion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipo_documento_conyugue" class="java.lang.String"/>
+	<field name="identificacion_conyuge" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido1conyuge" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido2conyuge" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombres_conyugue" class="java.lang.String"/>
+	<field name="provincia_domicilio" class="java.lang.String"/>
+	<field name="canton_domicilio" class="java.lang.String"/>
+	<field name="parroquia_domicilio" class="java.lang.String"/>
+	<field name="barrio_domicilio" class="java.lang.String"/>
+	<field name="numeracion_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="referencia_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="calle_principal_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="calletransversal_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipo_vivienda" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="avaluo" class="java.lang.String"/>
+	<field name="telefono_principal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefono_celular" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="origen_ingresos" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ruc_empresa" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre_labora" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_ingreso" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cargo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="provincia_trabajo" class="java.lang.String"/>
+	<field name="ciudad_trabajo" class="java.lang.String"/>
+	<field name="parroquia_trabajo" class="java.lang.String"/>
+	<field name="barrio_trabajo" class="java.lang.String"/>
+	<field name="numeracion_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="referencia_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="calle_principal_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="calletransversal_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefono_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido1ref_personal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido2ref_personal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombres_referencia" class="java.lang.String"/>
+	<field name="telefono_ref_personal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ingresos_personales" class="java.lang.String"/>
+	<field name="rentas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="remesas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ingreso_familiares" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="otros_ingresos" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alimentacion" class="java.lang.String"/>
+	<field name="servicios_basicos" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="transporte" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="otros_gastos" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descripcion_activo" class="java.lang.String"/>
+	<field name="valor_unitario_bien" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="institucion_pasivo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_emision_pasivo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="valor_cuota_pasivo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="plazo_pasivo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="saldo_pasivo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="logo" class="java.lang.Object"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="218" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="c51f0106-2d94-4688-af89-321b7272713d" x="0" y="0" width="555" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VIGÉSIMA: DE LA GARANTÍA.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="71424a73-4165-4444-90a9-c59c22506ee0" x="0" y="19" width="555" height="58"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[EL BANCO podrá solicitar, en cualquier momento al TARJETAHABIENTE para el uso de la TARJETA, la constitución de garantías tales como, pero sin limitarse a, hipotecaria, prendaria, personal, seguro de garantía de crédito, certificado de inversión y fideicomiso mercantil.
+En caso de que EL BANCO solicite la constitución de una garantía personal, esta garantía tendrá una vigencia máxima de dos años, luego de lo cual será necesario que el garante ratifique o, en caso de que la niegue, que el tarjetahabiente constituya nuevas garantías. En ningún caso se considerará renovada tácitamente la garantía constituida inicialmente. El garante de un tarjetahabiente podrá, en cualquier tiempo, retirar la garantía concedida y no será responsable por los consumos que efectúe el tarjetahabiente a partir de la fecha de notificación del particular al emisor o administrador de tarjetas de crédito.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3c6b41a9-b5b2-43fd-acd3-6942e71e72e7" x="0" y="76" width="555" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VIGÉSIMA PRIMERA: NOTIFICACIONES.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e2c6a48d-2620-44dc-a403-57bf09374662" x="0" y="92" width="555" height="39"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[Las notificaciones que correspondan a las partes en orden al presente contrato, incluyendo las modificaciones relacionadas con este, así como las tablas de cargos, intereses y costos, serán enviadas al lugar indicado por el TARJETAHABIENTE en su solicitud o a la dirección que conste registrada en los archivos de EL BANCO.
+En forma adicional, futuras notificaciones también podrán darse a conocer al TARJETAHABIENTE mediante comunicación por medios electrónicos o de manera destacada en cada una de las oficinas de EL BANCO o en su página web.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b39f3b95-f7fb-4c20-bc45-db80b3f90fd5" x="0" y="130" width="555" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VIGÉSIMA SEGUNDA: COMPETENCIA Y JURISDICCIÓN.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="adb127ab-694f-46ca-a351-4d89b0f595e2" x="0" y="150" width="555" height="48"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[Las partes comparecientes aceptan y ratifican el total contenido de las cláusulas y estipulaciones que anteceden. En todo lo que no estuviere expresamente contemplado en este contrato, las partes comparecientes declaran que se entienden incorporadas a las estipulaciones de este contrato las disposiciones de carácter general emitidas por la Junta de Política y Regulación Monetaria y Financiera y la Superintendencia de Bancos.
+En caso de controversias en la ejecución del presente contrato las partes renuncian fuero y domicilio, y expresan que se someterán a los jueces competentes de la ciudad de
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="edf78a7c-9520-46e9-91bb-6d0583103cbd" x="78" y="184" width="180" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{canton_domicilio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="2a778b51-e7ce-4239-addf-a74822d9c40c" x="78" y="185" width="477" height="15"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[, y al trámite judicial que escoja el actor, sin perjuicio de que el actor pueda someter  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="505b0e1c-0394-46c7-8268-bca5a0e4c42d" x="0" y="198" width="555" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[las controversias relacionadas con la interpretación , aplicación y ejecución del presente contrato a lo dispuesto en la Ley de Arbitraje y Mediación y su respectivo reglamento.]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="ce56a0df-f581-49a8-b237-da1f33710a5e" x="0" y="0" width="555" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pagina 6 de 6"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="210" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="be48181e-cf48-4725-9438-e6ab3e432c64" x="0" y="94" width="555" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Firma del Solicitante]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="b12a02d2-b96a-4ae5-98e9-01527a121e1f" x="204" y="93" width="132" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="f5c6bad8-3e33-4383-b029-27859759d51e" x="128" y="114" width="79" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="512dfade-9d20-4f8a-abc3-c842c6af9f39" x="128" y="130" width="79" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CC:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2ad7f281-241d-457b-a5ef-f33b80e56841" x="128" y="146" width="79" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Correo Electrónico:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e91a1066-db4e-4418-9044-ad0f5f2c4424" x="128" y="162" width="79" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Celular:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="90495b6b-7a30-49bd-934d-b65ed890f968" x="207" y="114" width="195" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombres_completos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6c17a678-2d3d-42e7-8bed-eef9f637a4ae" x="207" y="130" width="195" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cedula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="436d4fdc-6137-4998-b4d0-c3bafb903373" x="207" y="145" width="195" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="69c18992-7016-487d-beb9-f77486d708e9" x="207" y="161" width="195" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{telefono_celular}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

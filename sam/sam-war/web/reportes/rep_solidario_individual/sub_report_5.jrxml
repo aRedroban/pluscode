@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sub_report_5" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4ab98d8f-34bd-4fc5-98cb-b841de7b5bfa">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="359"/>
+	<parameter name="pide_cliente" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+    id,
+    SUBSTRING_INDEX(fecha_gestion, ' ', 1) AS fecha_gestion,
+    lugar_entregaecuenta,
+    CASE
+        WHEN lugar_entregaecuenta = 'DIGITAL' THEN email
+        ELSE email = NULL
+    END AS 'email_estado_cuenta',
+    tipo_identificacion,
+    cedula,
+    apellido_paterno,
+    apellido_materno,
+    CONCAT(primer_nombre, ' ', segundo_nombre) AS nombres,
+    concat(apellido_paterno, ' ', apellido_materno, ' ',primer_nombre, ' ', segundo_nombre) as nombres_completos,
+    genero,
+    estado_civil,
+    fecha_nacimiento,
+    cargas_familiares,
+    nivel_estudios,
+    profesion,
+    'CEDULA' AS tipo_documento_conyugue,
+    identificacion_conyuge,
+    apellido1conyuge,
+    apellido2conyuge,
+    CONCAT(nombre1conyuge, ' ', nombre2conyuge) AS nombres_conyugue,
+    provincia_domicilio,
+    ciudad_domicilio AS canton_domicilio,
+    parroquia_domicilio,
+    barrio_domicilio,
+    numeracion_domicilio,
+    referencia_domicilio,
+    calle_principal_domicilio,
+    calletransversal_domicilio,
+    tipo_vivienda,
+    valor_vivienda AS avaluo,
+    telefono_principal,
+    telefono_celular,
+    email,
+    origen_ingresos,
+    ruc_empresa,
+    nombre_labora,
+    fecha_ingreso,
+    cargo,
+    provincia_trabajo,
+    ciudad_trabajo,
+    parroquia_trabajo,
+    barrio_trabajo,
+    numeracion_trabajo,
+    referencia_trabajo,
+    calle_principal_trabajo,
+    calletransversal_trabajo,
+    telefono_trabajo,
+    apellido1ref_personal,
+    apellido2ref_personal,
+    CONCAT(nombre1ref_personal, ' ',nombre2ref_personal) AS nombres_referencia,
+    telefono_ref_personal,
+    sueldo_ingresos AS ingresos_personales,
+    rentas,
+    remesas,
+    ingreso_familiares,
+    otros_ingresos,
+    gastos_basicos AS alimentacion,
+    servicios_basicos,
+    transporte,
+    otros_gastos,
+    activo_bien AS descripcion_activo,
+    valor_unitario_bien,
+    institucion_pasivo,
+    fecha_emision_pasivo,
+    valor_cuota_pasivo,
+    plazo_pasivo,
+    saldo_pasivo,
+(SELECT logo_empr FROM sis_empresa) AS logo
+FROM
+    clientes
+WHERE
+    id = $P{pide_cliente};]]>
+	</queryString>
+	<field name="id" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_gestion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="lugar_entregaecuenta" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email_estado_cuenta" class="java.lang.String"/>
+	<field name="tipo_identificacion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cedula" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido_paterno" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido_materno" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombres" class="java.lang.String"/>
+	<field name="nombres_completos" class="java.lang.String"/>
+	<field name="genero" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estado_civil" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_nacimiento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cargas_familiares" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nivel_estudios" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="profesion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipo_documento_conyugue" class="java.lang.String"/>
+	<field name="identificacion_conyuge" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido1conyuge" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido2conyuge" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombres_conyugue" class="java.lang.String"/>
+	<field name="provincia_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="canton_domicilio" class="java.lang.String"/>
+	<field name="parroquia_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="barrio_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numeracion_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="referencia_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="calle_principal_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="calletransversal_domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipo_vivienda" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="avaluo" class="java.lang.String"/>
+	<field name="telefono_principal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefono_celular" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="origen_ingresos" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ruc_empresa" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre_labora" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_ingreso" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cargo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="provincia_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ciudad_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="parroquia_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="barrio_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numeracion_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="referencia_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="calle_principal_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="calletransversal_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefono_trabajo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido1ref_personal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido2ref_personal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombres_referencia" class="java.lang.String"/>
+	<field name="telefono_ref_personal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ingresos_personales" class="java.lang.String"/>
+	<field name="rentas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="remesas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ingreso_familiares" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="otros_ingresos" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alimentacion" class="java.lang.String"/>
+	<field name="servicios_basicos" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="transporte" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="otros_gastos" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descripcion_activo" class="java.lang.String"/>
+	<field name="valor_unitario_bien" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="institucion_pasivo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_emision_pasivo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="valor_cuota_pasivo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="plazo_pasivo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="saldo_pasivo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="logo" class="java.lang.Object"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="511" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="4ff71152-f2bd-4c71-8e28-154a9a1fbf5f" x="0" y="0" width="555" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DÉCIMA QUINTA: DEL PLAZO Y CONDICIONES DEL CONTRATO.- ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5cbb8a6e-c65f-4fe3-b688-a89600c809cb" x="0" y="16" width="555" height="93"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[El plazo de vigencia del presente contrato es de tres años a partir de la suscripción del mismo. Su renovación se producirá de manera automática, salvo que cualquiera de las partes manifieste su voluntad de no renovarlo, con treinta días de anticipación a su vencimiento.
+La fecha de caducidad consta grabada en la TARJETA, y se entenderá que las partes desean renovarla si no han manifestado su voluntad de cancelarla, con al menos treinta días de anticipación a la fecha señalada.
+Las partes, en cualquier tiempo, podrán dar por terminado este contrato. EL BANCO podrá darlo por terminado, en forma unilateral, únicamente cuando haya incumplimiento por parte del TARJETAHABIENTE de cualquiera de las condiciones establecidas en este contrato.
+EL TARJETAHABIENTE, en forma unilateral, podrá dar por terminado este contrato, procediendo a la cancelación de la totalidad de las obligaciones adquiridas.
+La terminación del contrato suspende de inmediato el derecho de utilizar la TARJETA de crédito.
+En caso de terminación anticipada del contrato, los cargos cobrados con anticipación, de haberlos, serán devueltos de manera proporcional por el tiempo de utilización o prestación no devengados, siempre y cuando se verifique previamente la cancelación total de las obligaciones del TARJETAHABIENTE.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="41f91f1e-6a4b-4a47-b3f8-169643f2521f" x="0" y="109" width="555" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DÉCIMA SEXTA: MODIFICACIONES AL CONTRATO.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="72b4e8b2-b530-4d1b-9e0b-38359e111e6c" x="0" y="125" width="555" height="38"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[EL BANCO conjuntamente con el TARJETAHABIENTE podrá acordar expresamente la modificación de los términos y condiciones que anteceden. El uso de la TARJETA por parte del cliente significa su expreso consentimiento de aceptación a las normas de este contrato y las modificaciones previo acuerdo entre las partes. En caso contrario, el TARJETAHABIENTE puede dar por finalizada su relación con EL BANCO, devolviendo inmediatamente la(s) TARJETA(S) inutilizadas y cancelando el saldo total deudor a esa fecha.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1832e91a-20e2-4acc-9964-0338a6bd3cae" x="0" y="161" width="555" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DÉCIMA SÉPTIMA: EXONERACIÓN DE RESPONSABILIDAD.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1c0e0a20-d786-4baa-bdd7-0e9e55b8e1b0" x="0" y="177" width="555" height="57"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[EL BANCO en ningún caso responderá por los defectos de calidad, cantidad u otras condiciones y características de los bienes y/o servicios que el TARJETAHABIENTE adquiera mediante la utilización de la TARJETA, ni por el incumplimiento de las obligaciones contractuales por parte del (los) establecimiento(s) afiliado(s) al sistema de la tarjeta “ALIA” en el (los) que se realizó el respectivo consumo, por lo que toda reclamación al respecto deberá formularse directamente al (los) establecimiento(s).
+En todo caso, los consumos efectuados por el TARJETAHABIENTE le obligan aun en el evento de tales reclamaciones y por tanto deberá cancelar a EL BANCO oportunamente todos los valores que le adeudare.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="15cf53e4-913a-4815-b1a5-fa346bdb02bb" x="0" y="230" width="555" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DÉCIMA OCTAVA: ACTUALIZACIÓN DE INFORMACIÓN.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ee24fc0b-cbc1-48da-a9c2-b1a3c29b9a8e" x="0" y="246" width="555" height="21"/>
+				<textElement>
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[EL BANCO debe prevenir al cliente de su obligación de actualizar, por lo menos anualmente, los datos que varíen, según el producto o servicio de que se trate, suministrando los antecedentes correspondientes.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0e5b56bc-e2cd-4797-a6eb-7914496785ca" x="0" y="265" width="555" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DÉCIMA NOVENA: DECLARACIONES.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="264082a4-af90-4adb-9433-e483fb49dc05" x="0" y="281" width="555" height="230"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[Origen lícito de fondos: EL TARJETAHABIENTE declara haber sido advertido por EL BANCO que las transacciones financieras que realizarán con la TARJETA no deberán servir o provenir de actividades ilícitas y que se obligan a utilizarla en operaciones legales, en ningún caso en operaciones relacionadas con el lavado de activos o delitos afines.
+Inhabilidades: Sin perjuicio de la verificación que EL BANCO realice, el TARJETAHABIENTE declara que no se encuentra comprendido dentro de la nómina de personas inhabilitadas para el manejo de cuentas en las entidades del sistema financiero nacional, o por mal uso y manejo de tarjeta de crédito o morosidad.
+Seguros asociados a operaciones activas: EL TARJETAHABIENTE declara conocer y haber sido informado que EL BANCO, amparado en las disposiciones que regulan los gastos con terceros, contenidas en la normativa vigente aplicable, y de acuerdo a sus políticas de crédito, requiere la contratación de seguros asociados a sus operaciones activas que protejan a EL BANCO, al TARJETAHABIENTE o a los bienes recibidos en garantía de ser el caso. El BANCO puede aceptar la póliza contratada por EL TARJETAHABIENTE, siempre y cuando este seguro brinde condiciones de cobertura similares o mayores al seguro ofrecido por el Banco.
+Inexistencia de vinculación: El TARJETAHABIENTE declara que de lo que conoce a la presente fecha, no mantiene vinculación ni por propiedad, ni por administración o gestión con EL BANCO; sin embargo, se compromete a poner en inmediato conocimiento de EL BANCO, en caso de llegar a incurrir en una o más causales de vinculación establecidas en la normativa vigente aplicable, deslindando a EL BANCO de toda responsabilidad para estos efectos.
+Costos y tarifas de cobranza: El TARJETAHABIENTE declara que serán de su cuenta, los costos y tarifas por los servicios de cobranza extrajudicial y judicial realizada, valores que declara haber conocido de manera previa y que constan en el tarifario respectivo, los mismos que se aplicarán a todo valor que presentare un atraso de pagos respecto de su fecha de vencimiento. Las modificaciones a dichos costos y gastos serán efectuadas e informadas de conformidad con la normativa aplicable. Para los efectos legales pertinentes, los valores por gestión y administración por cobranza no podrán ser considerados, bajo ningún concepto, como comisión o carga financiera adicional a favor de EL BANCO.
+Autorización para envío de información: El TARJETAHABIENTE declara que autoriza a EL BANCO directamente o por intermedio de la(s) empresa(s) de cobranza designada(s), a remitir a sus direcciones del domicilio, lugar de trabajo, de correo electrónico y /o teléfonos celulares registrados en esta institución, información relevante sobre sus obligaciones de crédito tales como fechas recordatorias y/o máximas de pago, vencimientos registrados, valores a cancelar, entre otros. De igual forma acepta expresamente que EL BANCO, utilice entre otros, el servicio de correo electrónico, mensajería SMS y/o cualquier otro medio de comunicación electrónica como medio válido de información de costos, cambios de tarifa, y, en general, cualquier elemento que modifique los términos y condiciones originales de contratación entre las partes. Los mensajes electrónicos remitidos bajo estas condiciones no podrán ser considerados como correo electrónico no deseado. Así mismo EL TARJETAHABIENTE autoriza a que por cualquiera de los medios señalados anteriormente, EL BANCO le remita información sobre promociones, beneficios y notificaciones sobre operaciones efectuadas con su TARJETA.]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="149" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="2d74762c-a3d0-4582-b18b-9b9fcb9a912a" x="0" y="0" width="555" height="149"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[La presente autorización podrá ser revocada en cualquier momento mediante comunicación escrita, telefónica o electrónica dirigida al remitente.
+
+Información de crédito: El TARJETAHABIENTE autoriza a EL BANCO para que cuantas veces sean necesarias y durante la vigencia del contrato obtenga y/o valide información sobre su comportamiento crediticio, manejo de cuentas corrientes, de ahorro, tarjetas de crédito, etc., y en general sobre el cumplimiento de las obligaciones adquiridas por el TARJETAHABIENTE, con cualquier fuente de información crediticia, incluida la información proporcionada por la central de riesgos, el Registro de Datos Crediticios de la Dirección Nacional de Registro de Datos Públicos, burós de información crediticia autorizados para operar en el país, personas naturales, establecimientos de comercio, su empleador, instituciones financieras, de crédito, de cobranza, compañías de informes, compañías emisoras o administradoras de tarjetas de crédito y otras entidades, las referencias personales y/o patrimoniales de pasado, de presente y las que se generen en el futuro.
+Transparencia de Información: El TARJETAHABIENTE declara y acepta haber sido informado de forma previa, completa, clara y precisa, sobre los costos de los servicios ofertados por EL BANCO, información que se encuentra en las pizarras de información, tarifario de servicios y documentos informativos que ha recibido de EL BANCO, de manera previa a la suscripción del presente documento. Acepta que la(s) modificación(es) a dichos costos y tarifas serán efectuadas e informadas de conformidad con la normativa vigente aplicable.
+Cesión: El TARJETAHABIENTE conoce, acepta y autoriza que EL BANCO pueda efectuar, en cualquier tiempo, la cesión o transferencia, a cualquier título, a favor de terceros, de los derechos y obligaciones que se derivan a su favor de este contrato, así como de la cartera generada por el TARJETAHABIENTE por el uso de la TARJETA, sin que sea necesario su consentimiento expreso para ello, sin perjuicio de la información que sobre el ejercicio de este derecho EL BANCO realice a través de cualquier canal de información. La referida cesión será debidamente informada al TARJETAHABIENTE, de acuerdo con la normativa vigente aplicable.
+]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="deb89553-439d-4c9d-b21e-facce99b205c" x="0" y="0" width="555" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pagina 5 de 6"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
